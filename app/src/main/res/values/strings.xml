@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ObsidianAndroidApp</string>
+    <string name="title_activity_user_panel">UserPanel</string>
+    <string name="title_home">Home</string>
+    <string name="title_Send">Send</string>
+    <string name="title_Decode">Decode</string>
+</resources>
