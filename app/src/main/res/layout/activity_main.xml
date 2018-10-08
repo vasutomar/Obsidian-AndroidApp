@@ -3,63 +3,67 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:background="@android:color/white"
+    android:background="@color/Amethyst"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/MainIcon"
+    <RelativeLayout
+        android:id="@+id/UpperPanel"
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="400sp"
-        android:layout_alignParentTop="true"/>
+        android:background="@color/Carrot"
+        android:layout_height="300dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WELCOME TO OBSIDIAN"
-        android:textStyle="bold"
-        android:textIsSelectable="false"
-        android:textColor="@android:color/holo_green_light"
-        android:backgroundTint="@android:color/black"
-        android:textSize="30sp"
-        android:id="@+id/WelcomeMessage"
-        android:layout_below="@+id/MainIcon"
-        android:layout_centerHorizontal="true"/>
+        <LinearLayout
+            android:id="@+id/ImageContainer"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="300sp">
+
+            <ImageView
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_oval" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/Card"
+        android:layout_below="@id/UpperPanel"
+        android:layout_width="300sp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="30sp"/>
 
     <Button
+        android:id="@+id/UserPanelButton"
+        android:drawableBottom="@drawable/person"
+        android:layout_centerHorizontal="true"
         android:onClick="StartUserPanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/UserPanelButton"
-        android:layout_marginBottom="100sp"
-        android:layout_marginRight="50sp"
+        android:layout_below="@+id/Card"
         android:text="User panel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_marginTop="20sp" />
 
     <Button
-        android:onClick="ExitApplication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ExitButton"
-        android:layout_marginBottom="100sp"
-        android:layout_centerHorizontal="true"
-        android:text="Exit"
-        android:layout_alignParentBottom="true"
-        />
-
-    <Button
+        android:id="@+id/AboutAppButton"
+        android:layout_below="@+id/UserPanelButton"
         android:onClick="StartAboutApplication"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/AboutAppButton"
-        android:layout_marginBottom="100sp"
-        android:layout_marginLeft="50sp"
-        android:text="About App"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        />
+        android:drawableBottom="@drawable/question"
+        android:text="About App" />
 
-
+    <Button
+        android:id="@+id/ExitButton"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/UserPanelButton"
+        android:text="Exit"
+        android:drawableBottom="@drawable/cross"
+        android:onClick="ExitApplication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

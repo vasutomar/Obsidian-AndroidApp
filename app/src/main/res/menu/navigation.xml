@@ -4,19 +4,19 @@
     <item
         android:iconTint="@android:color/holo_green_light"
         android:id="@+id/navigation_home"
-        android:icon="@android:drawable/presence_online"
+        android:icon="@drawable/clip_home"
         android:title="@string/title_home" />
 
     <item
         android:iconTint="@android:color/holo_green_light"
         android:id="@+id/navigation_Send"
-        android:icon="@android:drawable/btn_star_big_on"
+        android:icon="@drawable/clip_send"
         android:title="@string/title_Send" />
 
     <item
         android:iconTint="@android:color/holo_green_light"
         android:id="@+id/navigation_Decode"
-        android:icon="@android:drawable/ic_secure"
+        android:icon="@drawable/clip_decode"
         android:title="@string/title_Decode" />
 
 </menu>

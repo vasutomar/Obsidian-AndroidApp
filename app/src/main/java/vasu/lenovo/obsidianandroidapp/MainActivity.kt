@@ -11,9 +11,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val mainIcon = findViewById<ImageView>(R.id.MainIcon)
-        mainIcon.setImageResource(R.drawable.icon)
     }
 
     fun StartUserPanel(view: View) {

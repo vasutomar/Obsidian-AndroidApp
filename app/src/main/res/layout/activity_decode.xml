@@ -8,7 +8,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="400sp"
         android:id="@+id/DecImage"/>
 
 </android.support.constraint.ConstraintLayout>
