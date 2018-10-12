@@ -3,67 +3,107 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Amethyst"
+    android:background="@drawable/gradient"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/UpperPanel"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:background="@color/Carrot"
-        android:layout_height="300dp">
 
-        <LinearLayout
-            android:id="@+id/ImageContainer"
-            android:layout_alignParentBottom="true"
-            android:paddingBottom="30sp"
+        <RelativeLayout
+            android:id="@+id/layout1"
             android:layout_width="match_parent"
-            android:layout_height="300sp">
+            android:layout_height="450sp">
 
-            <ImageView
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="10sp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="350sp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="300sp"
+                    android:layout_height="340sp"
+                    android:paddingTop="20sp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/icon_oval"/>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="400sp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="60sp"
+                android:layout_marginTop="360sp">
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/icon_oval" />
+                android:text="User Panel"
+                android:textSize="11sp"
+                android:paddingTop="10sp"
+                android:layout_toLeftOf="@+id/CrossButton"
+                android:layout_below="@+id/UserPanelButton"
+                android:textColor="@color/TextColor"
+                android:layout_marginRight="95sp"/>
 
-        </LinearLayout>
-    </RelativeLayout>
+            <TextView
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exit"
+                android:paddingTop="10sp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/CrossButton"
+                android:textColor="@color/TextColor"/>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/Card"
-        android:layout_below="@id/UpperPanel"
-        android:layout_width="300sp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="30sp"/>
+            <TextView
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About"
+                android:paddingTop="10sp"
+                android:layout_toRightOf="@+id/CrossButton"
+                android:layout_marginLeft="100sp"
+                android:layout_below="@+id/AboutButton"
+                android:textColor="@color/TextColor"/>
 
-    <Button
-        android:id="@+id/UserPanelButton"
-        android:drawableBottom="@drawable/person"
-        android:layout_centerHorizontal="true"
-        android:onClick="StartUserPanel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Card"
-        android:text="User panel"
-        android:layout_marginTop="20sp" />
+            <Button
+                android:id="@+id/UserPanelButton"
+                android:onClick="StartUserPanel"
+                android:layout_height="40sp"
+                android:layout_width="40sp"
+                android:layout_toLeftOf="@+id/CrossButton"
+                android:background="@drawable/person"
+                android:layout_marginTop="370sp"
+                android:layout_marginRight="100sp"/>
 
-    <Button
-        android:id="@+id/AboutAppButton"
-        android:layout_below="@+id/UserPanelButton"
-        android:onClick="StartAboutApplication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableBottom="@drawable/question"
-        android:text="About App" />
+            <Button
+                android:onClick="ExitApplication"
+                android:id="@+id/CrossButton"
+                android:layout_height="40sp"
+                android:layout_width="40sp"
+                android:background="@drawable/cross"
+                android:layout_marginTop="370sp"
+                android:layout_centerHorizontal="true"/>
 
-    <Button
-        android:id="@+id/ExitButton"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/UserPanelButton"
-        android:text="Exit"
-        android:drawableBottom="@drawable/cross"
-        android:onClick="ExitApplication"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/AboutButton"
+                android:onClick="StartAboutApplication"
+                android:layout_marginLeft="100sp"
+                android:layout_height="40sp"
+                android:layout_width="40sp"
+                android:background="@drawable/question"
+                android:layout_marginTop="370sp"
+                android:layout_toRightOf="@+id/CrossButton"/>
+
+
+        </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="160sp"
+        android:layout_marginTop="700sp"
+        android:src="@drawable/connect" />
+
 </RelativeLayout>
