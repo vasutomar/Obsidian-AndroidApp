@@ -5,7 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="LightGreen">#45aaf2</color>
     <color name="GrayLight">#fafafa</color>
-    <color name="Start">#6dd5ed</color>
-    <color name="End">#2193b0</color>
+    <color name="Start">#ffecd2</color>
+    <color name="End">#fcb69f</color>
     <color name="TextColor">#141e30</color>
 </resources>

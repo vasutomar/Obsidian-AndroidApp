@@ -3,30 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/white"
+    android:background="@drawable/gradient"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SendActivity">
 
     <ImageView
+        android:src="@drawable/icon_oval"
+        android:padding="40sp"
         android:id="@+id/MainIcon"
         android:layout_width="match_parent"
         android:layout_height="400sp"
         android:layout_alignParentTop="true"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Your message"
-        android:layout_below="@+id/MainIcon"
-        android:id="@+id/UserMessageEditBox"/>
 
     <Button
         android:onClick="CaptureCamera"
         android:id="@+id/cameraButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/UserMessageEditBox"
+        android:layout_below="@+id/MainIcon"
         android:text="Capture Image"
         android:layout_centerHorizontal="true"
         />
@@ -37,6 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_below="@+id/cameraButton"
-        android:text="Choose from gallery"
+        android:text="Choose Image"
         />
 </RelativeLayout>

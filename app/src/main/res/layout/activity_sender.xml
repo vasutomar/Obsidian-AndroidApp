@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SenderActivity">
+
+    <ImageView
+        android:id="@+id/SendingImage"
+        android:layout_width="match_parent"
+        android:layout_height="400sp" />
+
+    <EditText
+        android:id="@+id/UserMessage"
+        android:layout_below="@+id/SendingImage"
+        android:padding="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Your Message" />
+
+    <RadioGroup
+        android:id="@+id/Radiogrp"
+        android:layout_width="wrap_content"
+        android:layout_height="50sp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/UserMessage">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LSB-Linear"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LSB-Alternating"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discrete Cosine transform"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send"
+        android:layout_below="@id/Radiogrp"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

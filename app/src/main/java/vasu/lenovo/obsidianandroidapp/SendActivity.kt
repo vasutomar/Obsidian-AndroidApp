@@ -10,23 +10,16 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.view.View
 import android.widget.ImageView
+import com.squareup.picasso.Picasso
 
 class SendActivity : AppCompatActivity() {
-
-    private var REQUEST_SELECT_IMAGE_IN_ALBUM = 0
 
     private val PERMISSIONS_REQUIRED = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_send)
-
-
-        val mainicon = findViewById<ImageView>(R.id.MainIcon)
-        mainicon.setImageResource(R.drawable.icon)
-
         askRequiredPermissions()
 
     }
@@ -50,18 +43,13 @@ class SendActivity : AppCompatActivity() {
     }
 
     fun CaptureCamera(view: View) {
-        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-            takePictureIntent.resolveActivity(packageManager)?.also {
-                startActivityForResult(takePictureIntent, 1)
-            }
-        }
+        val intent = Intent(this,SenderActivity()::class.java)
+        intent.putExtra("Code",1)
+        startActivity(intent)
     }
     fun ChoosePicture(view: View) {
-
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*"
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(intent, REQUEST_SELECT_IMAGE_IN_ALBUM)
-        }
+        val intent = Intent(this,SenderActivity()::class.java)
+        intent.putExtra("Code",2)
+        startActivity(intent)
     }
 }
