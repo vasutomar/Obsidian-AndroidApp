@@ -24,9 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".UserPanel"
-            android:label="@string/title_activity_user_panel" />
         <activity android:name=".AboutApp" />
         <activity android:name=".SendActivity" />
         <activity android:name=".DecodeActivity" />

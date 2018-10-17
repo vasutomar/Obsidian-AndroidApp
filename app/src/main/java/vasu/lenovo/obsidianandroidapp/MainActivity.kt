@@ -3,6 +3,7 @@ package vasu.lenovo.obsidianandroidapp
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.ImageView
 
@@ -13,17 +14,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun StartUserPanel(view: View) {
-        val intent = Intent(this,UserPanel::class.java)
+    fun StartSend(view : View) {
+        val intent = Intent(this,SendActivity::class.java)
         startActivity(intent)
     }
 
-    fun StartAboutApplication(view : View) {
+    fun StartDecode(view : View) {
+        val intent = Intent(this,DecodeActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun StartAbout(view : View) {
         val intent = Intent(this,AboutApp::class.java)
         startActivity(intent)
-    }
-
-    fun ExitApplication(view: View) {
-        finish()
     }
 }

@@ -42,12 +42,12 @@ class SendActivity : AppCompatActivity() {
         }
     }
 
-    fun CaptureCamera(view: View) {
+    fun CaptureCamera(view : View) {
         val intent = Intent(this,SenderActivity()::class.java)
         intent.putExtra("Code",1)
         startActivity(intent)
     }
-    fun ChoosePicture(view: View) {
+    fun ChoosePicture(view : View) {
         val intent = Intent(this,SenderActivity()::class.java)
         intent.putExtra("Code",2)
         startActivity(intent)

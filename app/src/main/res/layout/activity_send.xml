@@ -10,13 +10,15 @@
 
     <ImageView
         android:src="@drawable/icon_oval"
-        android:padding="40sp"
         android:id="@+id/MainIcon"
-        android:layout_width="match_parent"
-        android:layout_height="400sp"
-        android:layout_alignParentTop="true"/>
+        android:layout_width="300sp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="300sp" />
 
     <Button
+        android:textColor="@android:color/white"
+        android:padding="8sp"
+        android:background="@drawable/button_shape"
         android:onClick="CaptureCamera"
         android:id="@+id/cameraButton"
         android:layout_width="wrap_content"
@@ -26,12 +28,23 @@
         android:layout_centerHorizontal="true"
         />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="10sp"
+        android:id="@+id/empty"
+        android:layout_below="@+id/cameraButton">
+
+    </RelativeLayout>
+
     <Button
+        android:textColor="@android:color/white"
+        android:padding="8sp"
+        android:background="@drawable/button_shape"
         android:onClick="ChoosePicture"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_below="@+id/cameraButton"
+        android:layout_below="@+id/empty"
         android:text="Choose Image"
         />
 </RelativeLayout>
