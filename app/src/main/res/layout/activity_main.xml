@@ -23,54 +23,73 @@
 
     </RelativeLayout>
 
-
     <RelativeLayout
         android:layout_marginBottom="50sp"
         android:id="@+id/ButtonPanel"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="70sp">
+        android:layout_width="match_parent"
+        android:layout_height="100sp">
 
         <Button
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
+            android:onClick="ChoosePicture"
+            android:id="@+id/SendButton"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:background="@drawable/ic_send_purple_24dp"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:onClick="CaptureCamera"
             android:id="@+id/CaptureButton"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:layout_marginRight="30sp"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:background="@drawable/ic_camera_blue_24dp"
-            android:onClick="StartSend" />
+            android:background="@drawable/ic_camera_black_24dp"
+            android:layout_toLeftOf="@+id/SendButton" />
 
         <Button
-            android:layout_toRightOf="@+id/CaptureButton"
+            android:onClick="DecodeImage"
             android:id="@+id/DecodeButton"
-            android:layout_width="40sp"
-            android:layout_height="40sp"
-            android:background="@drawable/ic_lock_blue_24dp"
-            android:onClick="StartDecode" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            android:layout_marginLeft="5sp"
-            android:id="@+id/SendText"
-            android:layout_below="@+id/CaptureButton"/>
-
-        <TextView
+            android:layout_width="50sp"
+            android:layout_height="50sp"
             android:layout_marginLeft="30sp"
-            android:layout_below="@+id/CaptureButton"
+            android:background="@drawable/ic_security_red_24dp"
+            android:layout_toRightOf="@+id/SendButton" />
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Decode"
-            android:layout_toRightOf="@+id/SendText"/>
+            android:layout_below="@id/SendButton"
+            android:text="Pick"
+            android:id="@+id/picktext"/>
 
+        <TextView
+            android:text="Capture"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="40sp"
+            android:layout_toLeftOf="@+id/picktext"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/CaptureButton" />
+
+        <TextView
+            android:text="Decode"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="45sp"
+            android:layout_toRightOf="@+id/picktext"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/DecodeButton" />
     </RelativeLayout>
 
     <Button
         android:onClick="StartAbout"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About"
