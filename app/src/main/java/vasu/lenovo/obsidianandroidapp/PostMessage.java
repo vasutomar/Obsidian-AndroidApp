@@ -1,4 +1,11 @@
 package vasu.lenovo.obsidianandroidapp;
+import android.graphics.Bitmap;
+import android.media.Image;
+import android.util.Base64;
+import android.util.Log;
+import android.widget.ImageView;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -12,16 +19,28 @@ import okhttp3.Response;
 public class PostMessage {
 
     public String message;
+    public ImageView Img;
 
-    PostMessage(String message) {
+    PostMessage(String message,ImageView Img) {
         this.message = message;
-        send();
+        this.Img = Img;
+        send_message();
     }
 
-    public void send() {
+    public String BitMapToString(Bitmap bitmap){
+        ByteArrayOutputStream baos=new  ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
+        byte [] b=baos.toByteArray();
+        String temp= Base64.encodeToString(b, Base64.DEFAULT);
+        return temp;
+    }
+
+    public void send_message() {
+        Img.buildDrawingCache();
+        Bitmap bitmap = Img.getDrawingCache();
+        final String imageBytes = BitMapToString(bitmap);
 
         Thread thread = new Thread(new Runnable() {
-
             @Override
             public void run() {
                 try  {
@@ -30,6 +49,7 @@ public class PostMessage {
 
                     RequestBody formBody = new FormBody.Builder()
                             .add("message", message)
+                            .add("image",imageBytes)
                             .build();
 
                     Request request = new Request.Builder()
