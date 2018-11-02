@@ -32,27 +32,30 @@
         android:layout_height="100sp">
 
         <Button
+            android:layout_marginTop="50sp"
             android:onClick="ChoosePicture"
             android:id="@+id/SendButton"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
             android:background="@drawable/ic_send_purple_24dp"
             android:layout_centerHorizontal="true" />
 
         <Button
+            android:layout_marginTop="50sp"
             android:onClick="CaptureCamera"
             android:id="@+id/CaptureButton"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
             android:layout_marginRight="30sp"
             android:background="@drawable/ic_camera_black_24dp"
             android:layout_toLeftOf="@+id/SendButton" />
 
         <Button
+            android:layout_marginTop="50sp"
             android:onClick="DecodeImage"
             android:id="@+id/DecodeButton"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
+            android:layout_width="35sp"
+            android:layout_height="35sp"
             android:layout_marginLeft="30sp"
             android:background="@drawable/ic_security_red_24dp"
             android:layout_toRightOf="@+id/SendButton" />
@@ -69,7 +72,7 @@
         <TextView
             android:text="Capture"
             android:layout_centerHorizontal="true"
-            android:layout_marginRight="40sp"
+            android:layout_marginRight="25sp"
             android:layout_toLeftOf="@+id/picktext"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
@@ -79,7 +82,7 @@
         <TextView
             android:text="Decode"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="45sp"
+            android:layout_marginLeft="30sp"
             android:layout_toRightOf="@+id/picktext"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
@@ -89,7 +92,7 @@
 
     <Button
         android:onClick="StartAbout"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About"

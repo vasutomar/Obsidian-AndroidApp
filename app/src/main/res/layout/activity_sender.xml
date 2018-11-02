@@ -46,11 +46,12 @@
         <Button
             android:onClick="SendResources"
             android:layout_marginBottom="20sp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:background="@drawable/button_shape"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Send"
+            android:textAllCaps="false"
             android:layout_below="@id/Radiogrp"
             android:layout_centerHorizontal="true"/>
         </RelativeLayout>

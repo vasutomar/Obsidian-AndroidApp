@@ -3,35 +3,23 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Website.URL
 import android.provider.MediaStore
-
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.Toast
 import com.squareup.picasso.Picasso
-
-import com.github.nkzawa.socketio.client.IO;
-import com.github.nkzawa.socketio.client.Socket;
-import kotlinx.android.synthetic.main.activity_sender.*
-import java.io.ByteArrayOutputStream
-
+import okhttp3.*
+import java.net.HttpURLConnection
 import java.io.IOException
-import java.net.URISyntaxException
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONString;
-import java.nio.charset.Charset
 
 class SenderActivity() : AppCompatActivity() {
 
-    private lateinit var obj : JSONObject
-    private var encodedImage = "vasu"
-    private val mSocket = IO.socket("http://127.0.0.1:5000/")
+    //private val mSocket = IO.socket("http://192.168.43.22:5000/")
     private var REQUEST_SELECT_IMAGE_IN_ALBUM = 0
     private var REQUEST_CAPTURE_IMAGE = 1
-    private val message = String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,25 +73,19 @@ class SenderActivity() : AppCompatActivity() {
                 e.printStackTrace()
             }*/
         }
-        else {
+        else if(requestCode == REQUEST_CAPTURE_IMAGE){
             val imageBitmap = data?.extras?.get("data") as Bitmap
             val Img = findViewById<ImageView>(R.id.SendingImage)
             Img.setImageBitmap(imageBitmap)
         }
     }
     fun SendResources(view: View) {
-
         var userMessage = findViewById<EditText>(R.id.UserMessage)
-        try {
-            obj.put("text",userMessage.text)
-        } catch(e: JSONException) {
-            e.printStackTrace()
-        }
-
-        try {
-            mSocket.emit("text", obj.get("text").toString());
-        } catch (e:JSONException) {
-            e.printStackTrace()
-        }
+        val post = PostMessage(userMessage.text.toString())
+        Log.e("message is ",userMessage.text.toString())
     }
 }
+
+/*private operator fun String.invoke(s: String): Any {
+    return s
+}*/
