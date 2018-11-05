@@ -10,6 +10,8 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import com.squareup.picasso.Picasso
 import okhttp3.*
 import java.io.ByteArrayOutputStream
@@ -85,7 +87,10 @@ class SenderActivity() : AppCompatActivity() {
     fun SendResources(view: View) {
 
         var userMessage = findViewById<EditText>(R.id.UserMessage)
-        val post = PostMessage(userMessage.text.toString(),Img)
+        val rg = findViewById<RadioGroup>(R.id.Radiogrp)
+        val selected = findViewById<RadioButton>(rg.checkedRadioButtonId)
+        Log.e("choice is ",selected.text.toString())
+        val post = PostMessage(userMessage.text.toString(),Img,selected.text.toString())
         Log.e("message is ",userMessage.text.toString())
     }
 }

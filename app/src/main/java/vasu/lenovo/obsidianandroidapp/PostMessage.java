@@ -20,10 +20,12 @@ public class PostMessage {
 
     public String message;
     public ImageView Img;
+    public String choice;
 
-    PostMessage(String message,ImageView Img) {
+    PostMessage(String message,ImageView Img,String choice) {
         this.message = message;
         this.Img = Img;
+        this.choice = choice;
         send_message();
     }
 
@@ -50,6 +52,7 @@ public class PostMessage {
                     RequestBody formBody = new FormBody.Builder()
                             .add("message", message)
                             .add("image",imageBytes)
+                            .add("choice",choice)
                             .build();
 
                     Request request = new Request.Builder()
