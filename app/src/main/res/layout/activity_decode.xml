@@ -20,6 +20,7 @@
                 android:id="@+id/DecodeImage"/>
 
             <TextView
+                android:id="@+id/DecodedMessage"
                 android:layout_centerHorizontal="true"
                 android:padding="30sp"
                 android:layout_width="match_parent"

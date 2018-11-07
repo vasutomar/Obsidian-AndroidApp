@@ -23,6 +23,7 @@ class SenderActivity() : AppCompatActivity() {
 
     //private val mSocket = IO.socket("http://192.168.43.22:5000/")
     private lateinit var Img: ImageView
+    private lateinit var fbitmap : Bitmap
     private var REQUEST_SELECT_IMAGE_IN_ALBUM = 0
     private var REQUEST_CAPTURE_IMAGE = 1
 
@@ -58,28 +59,12 @@ class SenderActivity() : AppCompatActivity() {
             Img = findViewById<ImageView>(R.id.SendingImage)
             Picasso.get().load(uri).into(Img)
 
-            /*var bitmap : Bitmap? = null
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),uri)
-                var bos = ByteArrayOutputStream()
-                if (bitmap != null)
-                    bitmap.compress(Bitmap.CompressFormat.JPEG,100,bos)
-                var b = bos.toByteArray()
-                encodedImage = String(b, Charset.defaultCharset())
-
-                try {
-                    obj.put("image",encodedImage)
-                } catch(e: JSONException) {
-                    e.printStackTrace()
-                }
-
-                mSocket.emit("image",b)
-            } catch(e: IOException) {
-                e.printStackTrace()
-            }*/
+            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+            fbitmap = bitmap
         }
         else if(requestCode == REQUEST_CAPTURE_IMAGE){
             val imageBitmap = data?.extras?.get("data") as Bitmap
+            fbitmap = imageBitmap
             Img = findViewById<ImageView>(R.id.SendingImage)
             Img.setImageBitmap(imageBitmap)
         }
@@ -89,8 +74,8 @@ class SenderActivity() : AppCompatActivity() {
         var userMessage = findViewById<EditText>(R.id.UserMessage)
         val rg = findViewById<RadioGroup>(R.id.Radiogrp)
         val selected = findViewById<RadioButton>(rg.checkedRadioButtonId)
-        Log.e("choice is ",selected.text.toString())
-        val post = PostMessage(userMessage.text.toString(),Img,selected.text.toString())
-        Log.e("message is ",userMessage.text.toString())
+        //Log.e("choice is ",selected.text.toString())
+        val post = PostMessage(userMessage.text.toString(),fbitmap,selected.text.toString())
+        //Log.e("message is ",userMessage.text.toString())
     }
 }

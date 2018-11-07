@@ -5,6 +5,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
+import android.graphics.Bitmap
+import android.util.Base64
+import java.io.ByteArrayOutputStream
+import android.provider.MediaStore
+import android.widget.TextView
+
 
 class DecodeActivity : AppCompatActivity() {
 
@@ -26,6 +32,8 @@ class DecodeActivity : AppCompatActivity() {
             val uri = data?.data
             val Img = findViewById<ImageView>(R.id.DecodeImage)
             Picasso.get().load(uri).into(Img)
+            val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
+            val post = PostImageForDecoding(bitmap)
         }
     }
 }

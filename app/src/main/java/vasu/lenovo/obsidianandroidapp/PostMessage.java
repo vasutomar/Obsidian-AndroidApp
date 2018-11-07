@@ -19,12 +19,13 @@ import okhttp3.Response;
 public class PostMessage {
 
     public String message;
-    public ImageView Img;
+    public Bitmap bitmap;
     public String choice;
 
-    PostMessage(String message,ImageView Img,String choice) {
+    PostMessage(String message,Bitmap bitmap,String choice) {
+
         this.message = message;
-        this.Img = Img;
+        this.bitmap = bitmap;
         this.choice = choice;
         send_message();
     }
@@ -38,8 +39,6 @@ public class PostMessage {
     }
 
     public void send_message() {
-        Img.buildDrawingCache();
-        Bitmap bitmap = Img.getDrawingCache();
         final String imageBytes = BitMapToString(bitmap);
 
         Thread thread = new Thread(new Runnable() {
