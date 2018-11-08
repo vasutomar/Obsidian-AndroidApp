@@ -74,8 +74,6 @@ class SenderActivity() : AppCompatActivity() {
         var userMessage = findViewById<EditText>(R.id.UserMessage)
         val rg = findViewById<RadioGroup>(R.id.Radiogrp)
         val selected = findViewById<RadioButton>(rg.checkedRadioButtonId)
-        //Log.e("choice is ",selected.text.toString())
         val post = PostMessage(userMessage.text.toString(),fbitmap,selected.text.toString())
-        //Log.e("message is ",userMessage.text.toString())
     }
 }

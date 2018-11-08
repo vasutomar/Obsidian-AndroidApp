@@ -10,6 +10,8 @@ import android.util.Base64
 import java.io.ByteArrayOutputStream
 import android.provider.MediaStore
 import android.widget.TextView
+import android.widget.Toast
+import java.util.concurrent.TimeUnit
 
 
 class DecodeActivity : AppCompatActivity() {
@@ -33,7 +35,8 @@ class DecodeActivity : AppCompatActivity() {
             val Img = findViewById<ImageView>(R.id.DecodeImage)
             Picasso.get().load(uri).into(Img)
             val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
-            val post = PostImageForDecoding(bitmap)
+            val out = findViewById<TextView>(R.id.DecodedMessage)
+            val post = PostImageForDecoding(bitmap,applicationContext,out)
         }
     }
 }

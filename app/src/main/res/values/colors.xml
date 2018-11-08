@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="Concrete">#fdfbfb</color>
     <color name="BlueAccent">#0080FF</color>
     <color name="Start">#667eea</color>
     <color name="End">#764ba2</color>

@@ -3,8 +3,7 @@
     <gradient
         android:angle="270"
         android:type="linear"
-        android:endColor="@android:color/white"
-        android:centerColor="@android:color/white"
-        android:startColor="@android:color/white"
+        android:endColor="@color/End"
+        android:startColor="@color/cardview_light_background"
         />
 </shape>
