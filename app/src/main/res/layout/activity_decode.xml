@@ -19,8 +19,11 @@
                 android:id="@+id/DecodeImage"/>
 
             <TextView
-                android:background="@drawable/border"
+                android:background="@color/TextViewBackground"
                 android:hint="Message Loading..."
+                android:textStyle="bold"
+                android:textColorHint="@android:color/white"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:id="@+id/DecodedMessage"
                 android:layout_centerHorizontal="true"

@@ -5,6 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="Concrete">#fdfbfb</color>
     <color name="BlueAccent">#0080FF</color>
+    <color name="TextViewColor">#001F3F</color>
+    <color name="TextViewBackground">#39CCCC</color>
     <color name="Start">#667eea</color>
     <color name="End">#764ba2</color>
     <color name="TextColor">#141e30</color>

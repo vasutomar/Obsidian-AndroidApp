@@ -1,11 +1,15 @@
 package vasu.lenovo.obsidianandroidapp;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import okhttp3.Call;
@@ -19,8 +23,8 @@ import okhttp3.Response;
 public class PostMessage {
 
     public String message;
-    public Bitmap bitmap;
-    public String choice;
+    private Bitmap bitmap;
+    private String choice;
 
     PostMessage(String message,Bitmap bitmap,String choice) {
 
@@ -28,9 +32,10 @@ public class PostMessage {
         this.bitmap = bitmap;
         this.choice = choice;
         send_message();
+        //save_image();
     }
 
-    public String BitMapToString(Bitmap bitmap){
+    private String BitMapToString(Bitmap bitmap){
         ByteArrayOutputStream baos=new  ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
         byte [] b=baos.toByteArray();
@@ -38,7 +43,16 @@ public class PostMessage {
         return temp;
     }
 
-    public void send_message() {
+    private Bitmap StringToBitMap(String imag) {
+        String base64String = imag;
+        String base64Image = base64String.split(",")[1];
+
+        byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
+        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        return decodedByte;
+    }
+
+    private void send_message() {
         final String imageBytes = BitMapToString(bitmap);
 
         Thread thread = new Thread(new Runnable() {
@@ -69,7 +83,64 @@ public class PostMessage {
                 }
             }
         });
-
         thread.start();
+    }
+
+    private void save_image() {
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try  {
+                    OkHttpClient client = new OkHttpClient();
+                    String server_url = "http://192.168.43.22:5000/Return_Steg";
+
+                    Request request = new Request.Builder()
+                            .url(server_url)
+                            .build();
+
+                    client.newCall(request).enqueue(new Callback() {
+                        @Override
+                        public void onFailure(Call call, IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        @Override
+                        public void onResponse(Call call, final Response response) throws IOException {
+                            if (!response.isSuccessful()) {
+                                throw new IOException("Unexpected code " + response);
+                            } else {
+                                final String responseData = response.body().string();
+                                Bitmap b = StringToBitMap(responseData);
+                                String name = "Obs";
+                                System.out.println(responseData);
+                                saveImage(b,name);
+                            }
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+    }
+
+    private void saveImage(Bitmap finalBitmap, String image_name) {
+
+        String root = Environment.getExternalStorageDirectory().toString();
+        File myDir = new File(root);
+        myDir.mkdirs();
+        String fname = "Image-" + image_name+ ".png";
+        File file = new File(myDir, fname);
+        if (file.exists()) file.delete();
+        Log.i("LOAD", root + fname);
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            finalBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -37,6 +37,8 @@ class DecodeActivity : AppCompatActivity() {
             val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
             val out = findViewById<TextView>(R.id.DecodedMessage)
             val post = PostImageForDecoding(bitmap,applicationContext,out)
+            Toast.makeText(this,"Image sent. Please wait.",Toast.LENGTH_LONG).show()
+
         }
     }
 }

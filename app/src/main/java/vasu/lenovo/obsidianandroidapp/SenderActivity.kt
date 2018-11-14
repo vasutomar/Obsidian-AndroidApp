@@ -2,30 +2,35 @@ package vasu.lenovo.obsidianandroidapp
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.provider.ContactsContract.CommonDataKinds.Website.URL
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import com.squareup.picasso.Picasso
 import okhttp3.*
-import java.io.ByteArrayOutputStream
 import java.net.HttpURLConnection
-import java.io.IOException
+import android.os.Environment.DIRECTORY_PICTURES
+import android.support.v4.app.FragmentActivity
+import android.widget.*
+import java.text.SimpleDateFormat
+import java.util.*
+import java.io.*
 
 
 class SenderActivity() : AppCompatActivity() {
+
+    var imageFilePath: String? = "Obs"
 
     //private val mSocket = IO.socket("http://192.168.43.22:5000/")
     private lateinit var Img: ImageView
     private lateinit var fbitmap : Bitmap
     private var REQUEST_SELECT_IMAGE_IN_ALBUM = 0
     private var REQUEST_CAPTURE_IMAGE = 1
+    private var photoFile: File? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,10 +75,10 @@ class SenderActivity() : AppCompatActivity() {
         }
     }
     fun SendResources(view: View) {
-
         var userMessage = findViewById<EditText>(R.id.UserMessage)
         val rg = findViewById<RadioGroup>(R.id.Radiogrp)
         val selected = findViewById<RadioButton>(rg.checkedRadioButtonId)
         val post = PostMessage(userMessage.text.toString(),fbitmap,selected.text.toString())
+        Toast.makeText(this,"Message and image sent.",Toast.LENGTH_LONG).show()
     }
 }
