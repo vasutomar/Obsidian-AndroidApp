@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     tools:context=".AboutApp">
 
+    <ImageView
+        android:id="@+id/mainicon"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
+        android:src="@drawable/icon_oval"/>
+
     <TextView
+        android:elegantTextHeight="true"
+        android:textSize="17sp"
+        android:textColor="@android:color/white"
+        android:text="This is the about app section, Obsidian is built by Vasu Tomar and Love Varshney, For steganographing and image select one of the first 2 icons on the main page and for decoding select the 3rd icon on the main page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the about app section."/>
+        android:layout_marginRight="20sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="70sp"
+        android:layout_below="@+id/mainicon"/>
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

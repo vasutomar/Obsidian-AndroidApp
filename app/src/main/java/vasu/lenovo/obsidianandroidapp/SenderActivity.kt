@@ -25,7 +25,6 @@ class SenderActivity() : AppCompatActivity() {
 
     var imageFilePath: String? = "Obs"
 
-    //private val mSocket = IO.socket("http://192.168.43.22:5000/")
     private lateinit var Img: ImageView
     private lateinit var fbitmap : Bitmap
     private var REQUEST_SELECT_IMAGE_IN_ALBUM = 0
@@ -59,15 +58,14 @@ class SenderActivity() : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(requestCode == REQUEST_SELECT_IMAGE_IN_ALBUM) {
+        if(requestCode == REQUEST_SELECT_IMAGE_IN_ALBUM && data != null && data.getData() != null) {
             val uri = data?.data
             Img = findViewById<ImageView>(R.id.SendingImage)
             Picasso.get().load(uri).into(Img)
-
             val bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, uri)
             fbitmap = bitmap
         }
-        else if(requestCode == REQUEST_CAPTURE_IMAGE){
+        else if(requestCode == REQUEST_CAPTURE_IMAGE && data != null && data.getData() != null){
             val imageBitmap = data?.extras?.get("data") as Bitmap
             fbitmap = imageBitmap
             Img = findViewById<ImageView>(R.id.SendingImage)

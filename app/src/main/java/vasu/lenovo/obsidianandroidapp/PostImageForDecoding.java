@@ -45,7 +45,6 @@ public class PostImageForDecoding {
         this.context = context;
         this.out = out;
         final String imageBytes = BitMapToString(bitmap);
-
         send_image(imageBytes);
     }
 
@@ -87,6 +86,7 @@ public class PostImageForDecoding {
                     @Override
                     public void onResponse(Call call, final Response response) throws IOException {
                         if (!response.isSuccessful()) {
+                            Log.e("here"," Exception");
                             throw new IOException("Unexpected code " + response);
                         } else {
                             final String responseData = response.body().string();

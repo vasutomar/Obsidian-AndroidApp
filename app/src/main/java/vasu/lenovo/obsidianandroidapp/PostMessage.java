@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -32,7 +33,6 @@ public class PostMessage {
         this.bitmap = bitmap;
         this.choice = choice;
         send_message();
-        //save_image();
     }
 
     private String BitMapToString(Bitmap bitmap){
@@ -45,7 +45,7 @@ public class PostMessage {
 
     private Bitmap StringToBitMap(String imag) {
         String base64String = imag;
-        String base64Image = base64String.split(",")[1];
+        String base64Image = base64String;
 
         byte[] decodedString = Base64.decode(base64Image, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
@@ -86,7 +86,7 @@ public class PostMessage {
         thread.start();
     }
 
-    private void save_image() {
+    /*public void save_image() {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -142,5 +142,5 @@ public class PostMessage {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
